@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import styled from '@emotion/styled'
 import { CDBStepper, CDBStep, CDBInput, CDBBtn, CDBContainer } from "cdbreact";
+import { FaCheckCircle, FaTimesCircle } from 'react-icons/fa';
+import '@trimbleinc/modus-react-bootstrap/css/dist/modus-react-bootstrap.min.css';
+import {Chip} from '@trimbleinc/modus-react-bootstrap';
+import './index.css'
+
 
 
 const Stepper = () => {
@@ -11,6 +16,7 @@ const Stepper = () => {
       <CDBStepper>
         <CDBStep
           id={1}
+          className="icon-logo"
           icon="pencil-alt"
           name="Basic Information"
           handleClick={() => handleNextPrevClick(1)}
@@ -99,8 +105,15 @@ const Step4 = ({ handleNextPrevClick }) => {
 };
 
 const Step3 = ({ handleNextPrevClick }) => {
-  const handleTopicSelection = (topic) => {
-    // Handle the selection logic for the topics
+  const topics = ['Situational', 'Current Affairs'];
+  const [selectedTopics, setSelectedTopics] = useState([]);
+
+  const handleToggleTopic = (topic) => {
+    if (selectedTopics.includes(topic)) {
+      setSelectedTopics(selectedTopics.filter((selectedTopic) => selectedTopic !== topic));
+    } else {
+      setSelectedTopics([...selectedTopics, topic]);
+    }
   };
 
   return (
@@ -125,7 +138,7 @@ const Step3 = ({ handleNextPrevClick }) => {
                 fontWeight: 'bold',
               }}
             >
-              Step 3
+              Select Topics
             </div>
             <FlexColumnContainer width="100%">
               <div
@@ -142,39 +155,81 @@ const Step3 = ({ handleNextPrevClick }) => {
               {/* List container with selectable topics */}
               <div style={{ marginTop: '20px' }}>
                 <h3>Relevant Topics for You</h3>
-                <ul>
-                  <li>
-                    <label>
-                      <input
-                        type="checkbox"
-                        onChange={() => handleTopicSelection('Situational Current Affairs')}
-                      />
-                      Situational Current Affairs
-                    </label>
-                  </li>
-                  {/* Add more list items for other topics as needed */}
-                </ul>
+                <div>
+</div>
+<div className='list-container'>
+      {topics.map((topic) => (
+        <Chip
+          key={topic}
+          label={topic}
+          className="chip"
+          style={{
+            backgroundColor: selectedTopics.includes(topic) ? '#4CAF50' : '#e0e0e0',
+            color: selectedTopics.includes(topic) ? '#ffffff' : '#000000',
+            border: selectedTopics.includes(topic) ? '1px solid #4CAF50' : '1px solid #e0e0e0',
+            borderRadius: '8px',
+            margin: '4px',
+            paddingLeft:'13px',
+            padding: '8px',
+            cursor: 'pointer',
+          }}
+          icon={selectedTopics.includes(topic) ? <FaCheckCircle /> : <FaTimesCircle />}
+          onClick={() => handleToggleTopic(topic)}
+        />
+      ))}
+      </div>
               </div>
 
               {/* Another list container with non-selectable items */}
               <div style={{ marginTop: '20px' }}>
                 <h3>You May Also Add</h3>
-                <ul>
-                  <li>Jeevan</li>
-                  <li>Kirthi</li>
-                  {/* Add more list items as needed */}
-                </ul>
+                <div className='list-container'>
+      {topics.map((topic) => (
+        <Chip
+          key={topic}
+          label={topic}
+          className="chip"
+          style={{
+            backgroundColor: selectedTopics.includes(topic) ? '#4CAF50' : '#e0e0e0',
+            color: selectedTopics.includes(topic) ? '#ffffff' : '#000000',
+            border: selectedTopics.includes(topic) ? '1px solid #4CAF50' : '1px solid #e0e0e0',
+            borderRadius: '8px',
+            margin: '4px',
+            paddingLeft:'13px',
+            padding: '8px',
+            cursor: 'pointer',
+          }}
+          icon={selectedTopics.includes(topic) ? <FaCheckCircle /> : <FaTimesCircle />}
+          onClick={() => handleToggleTopic(topic)}
+        />
+      ))}
+      </div>
               </div>
 
               {/* Select element with options */}
-              <div style={{ marginTop: '20px' }}>
-                <h3>Select Options</h3>
-                <select>
-                  <option value="40">40</option>
-                  <option value="30">30</option>
-                  <option value="20">20</option>
-                </select>
-              </div>
+              <div className="my-styled-form-control">
+    <div className="my-styled-label-container">
+      <label className="my-styled-input-label" htmlFor="select-number-of-questions">
+        Select the number of questions
+      </label>
+      <select
+        className="my-styled-select"
+        id="select-number-of-questions"
+        // value={numberOfQuestionsSelected}
+        // onChange={handleNumberOfQuestionsSelectedChange}
+      >
+        <option className="my-styled-menu-item" value={20}>
+          20
+        </option>
+        <option className="my-styled-menu-item" value={30}>
+          30
+        </option>
+        <option className="my-styled-menu-item" value={40}>
+          40
+        </option>
+      </select>
+    </div>
+  </div>
 
               <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-around' }}>
                 <CDBBtn
@@ -194,7 +249,7 @@ const Step3 = ({ handleNextPrevClick }) => {
                   circle={false}
                   onClick={() => handleNextPrevClick(4)}
                 >
-                  Next
+                  Start Mock
                 </CDBBtn>
               </div>
             </FlexColumnContainer>
@@ -230,33 +285,58 @@ const Step2 = ({ handleNextPrevClick }) => {
                 fontWeight: 'bold',
               }}
             >
-              Step 2
+              DAF Overview
             </div>
             <FlexColumnContainer width="100%">
-              <h2>Your DAF Overview</h2>
-              <CDBInput color="secondary" label="State" placeholder="Enter or edit your data" />
-              <CDBInput color="secondary" label="District" placeholder="Enter or edit your data" />
-              <CDBInput color="secondary" label="Stream" placeholder="Enter or edit your data" />
-              <CDBInput
+            <div className="input-container">
+  <div className="input-group">
+    <label htmlFor="state" className="label-style">State:</label>
+    <CDBInput color="secondary" id="state" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+    <label htmlFor="district" className="label-style">District:</label>
+    <CDBInput color="secondary" id="district" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+    <label htmlFor="stream" className="label-style">Stream:</label>
+    <CDBInput color="secondary" id="stream" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+  <label htmlFor="subject" className="label-style">Stream:</label>
+  <CDBInput
+  id="subject"
                 color="secondary"
-                label="Optional Subject"
                 placeholder="Enter or edit your data"
               />
+</div>
+</div>
+
+
+
+              
 
               <h2>Personal Interests</h2>
-              <CDBInput color="secondary" label="Prizes" placeholder="Enter or edit your data" />
-              <CDBInput color="secondary" label="Sports" placeholder="Enter or edit your data" />
-              <CDBInput
-                color="secondary"
-                label="Leadership Position"
-                placeholder="Enter or edit your data"
-              />
-              <CDBInput
-                color="secondary"
-                label="Extracurricular Activities"
-                placeholder="Enter or edit your data"
-              />
+              <div className="input-container">
+              
+  <div className="input-group">
+    <label htmlFor="prizes" className="label-style">Prizes:</label>
+    <CDBInput color="secondary" id="prizes" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+    <label htmlFor="sports" className="label-style">Sports:</label>
+    <CDBInput color="secondary" id="sports" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+    <label htmlFor="leadershipPosition" className="label-style">Leadership Position:</label>
+    <CDBInput color="secondary" id="leadershipPosition" label="" placeholder="Enter or edit your data" />
+  </div>
+  <div className="input-group">
+    <label htmlFor="extracurricularActivities" className="label-style">Extracurricular Activities:</label>
+    <CDBInput color="secondary" id="extracurricularActivities" label="" placeholder="Enter or edit your data" />
+  </div>
+</div>
 
+              
               <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-around' }}>
                 <CDBBtn
                   className="float-start"
@@ -318,17 +398,17 @@ const Step1 = ({ handleNextPrevClick }) => {
                 fontWeight: 'bold',
               }}
             >
-              Step 1
+              A Bit About Yourself
             </div>
             <FlexColumnContainer width="100%">
               <CDBInput
                 color="secondary"
                 type="file"
-                label="Upload a File"
+                label="Upload Your Daf"
                 onChange={handleFileUpload}
               />
-              <p>(OR)</p>
-              <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'space-around' }}>
+              <p className="or-text">(OR)</p>
+              <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <CDBBtn
                   color="secondary"
                   flat

@@ -1,0 +1,123 @@
+/* Existing styles */
+
+.list-container {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping to create a new line when items reach the container's width */
+  }
+  
+  .list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 0 0 calc(33.33% - 10px); /* Each list item takes up one-third of the container width with some margin */
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Other existing styles */
+/* Apply styles to the select element */
+select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+  }
+  
+  /* Style the options within the select dropdown */
+  select option {
+    background-color: #fff;
+    color: #333;
+  }
+  
+  /* Style the select element when it is in focus (clicked) */
+  select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+    
+
+  /* Style for the container div */
+
+  
+  /* Style for each input group */
+  .input-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+
+
+  }
+  
+  /* Style for the labels */
+  .label-style {
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-right: 15px;
+  }
+  
+  /* Additional styling for CDBInput components if needed */
+  .CDBInput {
+    /* Your styles here */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* Highlight on focus */
+  .CDBInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .input-container{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    width: 100%;
+  }
+
+
+/* MyStyledComponent.css */
+
+.my-styled-form-control {
+    width: 55%;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column; /* Display children in a column */
+  }
+  
+  .my-styled-label-container {
+    display: flex;
+    align-items: center; /* Center items vertically */
+  }
+  
+  .my-styled-input-label {
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  
+  .my-styled-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .my-styled-menu-item {
+    font-size: 14px;
+  }
+  .or-text{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #333;
+    outline: none;
+  }

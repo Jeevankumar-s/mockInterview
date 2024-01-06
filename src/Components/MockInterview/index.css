@@ -39,19 +39,22 @@
     justify-content: center;
 }
 .mock-button {
-    background-color: #0b69ff;
-    color: #ffffff;
-    font-family: 'Roboto';
-    font-size: 12px;
-    font-weight: 500;
-    border-radius: 8px;
-    border: none;
-    padding-top: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 12px;
-    margin-top: 14px;
-    outline: none;
+    box-shadow: 0 7px 16px 0 rgba(231,48,62,.25);
+    height: 46px;
+    line-height: 44px;
+    display: inline-block;
+    height: 48px;
+    width: 162px;
+    border-radius: 12px;
+    background-color: #e7303e;
+    color: #fff;
+    font-family: biotifbold;
+    font-size: 15px;
+    letter-spacing: .26px;
+    line-height: 46px;
+    text-align: center;
+    padding: 0;
+    border: 0;
     cursor: pointer;
 }
 
@@ -262,28 +265,38 @@ select {
   
   
   .welcome-text{
-    
-      text-align: center;
-      color: #252627;
-      font-family: 'Roboto';
-      font-size: 40px;
-      font-weight: 700;
-      padding-top: 48px;
-      margin-left: 15px;
-    
+      font-size: 32px;
+      line-height: 37px;
+      color: #000f38;
+      font-family: "Roboto";
+      font-weight: bold;
+      font-size: 38px;
+      letter-spacing: 0;
+      line-height: 44px;
+      margin-top:20px;
   }
+    
+  
   .watch-text{
     color: #0b69ff;
     font-family: 'Roboto';
     font-size: 30px;
     font-weight: 700;
     margin-top: 24px;
+    text-decoration: underline;
+    padding-bottom: 8px;
   }
   .practice-text{
-      text-align: center;
-      color: #333333;
-      font-family: 'Roboto';
-      font-size: 40px;
+    max-width: 600px;
+    font-size: 25px;
+    letter-spacing: .2px;
+    color: #000f38;
+    font-family: "Roboto";
+    letter-spacing: .53px;
+    line-height: 27px;
+    margin: 0 0 25px;
+    text-align: center;
+
   }
 
   .faq-container{

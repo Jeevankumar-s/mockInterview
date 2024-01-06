@@ -13,28 +13,28 @@ import Faqs from '../Faqs';
 const faqsList = [
   {
     id: 0,
-    questionText: 'What is IRC?',
+    questionText: 'How does the AI-integrated mock interview feature work on your platform?',
     answerText:
-      'IRC is an Industry Ready Certification that represents your readiness for a job with the necessary skills.',
+      'Our AI-integrated mock interview utilizes advanced algorithms to simulate real interview scenarios. It evaluates factors such as speech patterns, content, and non-verbal cues to provide detailed feedback on your performance.',
   },
   {
     id: 1,
-    questionText: 'What is the medium of instruction?',
+    questionText: 'What types of interview questions are available in the AI mock interviews?',
     answerText:
-      'The courses would be delivered in English and Telugu. The program will be available in more vernacular languages soon.',
+      ' We offer a diverse range of interview questions tailored to various industries and job roles. This includes behavioral questions, technical scenarios, and industry-specific inquiries to help you prepare for a wide array of interviews.',
   },
   {
     id: 2,
     questionText:
-      'Is there an EMI option to pay the fee for CCBP Tech 4.0 Intensive?',
+      'Can I customize the difficulty level of the mock interviews?',
     answerText:
-      'Yes, EMI support is available for credit cards. Please select EMI option while making payment for more information.',
+      'Yes, you can customize the difficulty level based on your experience and the type of position you are preparing for. Our platform provides flexibility to ensure a personalized and challenging experience.',
   },
   {
     id: 3,
-    questionText: 'How will my doubts be cleared? What is the mechanism?',
+    questionText: 'How secure is the data shared during a mock interview session?',
     answerText:
-      'You can ask your doubts in the discussions section and course mentor will answer them. You can also see the doubts asked by other students.',
+      'We prioritize the security and privacy of your data. All information shared during mock interview sessions is encrypted and stored securely. We adhere to strict data protection standards to ensure a safe and confidential experience.',
   },
 ]
 
@@ -598,25 +598,16 @@ class MockInterview extends Component {
          <div className="mock-container">
          <div className='text-container'>
           <h1 className='mock-test green'>Get ready for interviews in minutes</h1>
-          <h1 className='practice-text'>Practice Makes Perfect</h1>
-          <Popup
-        trigger={<button className='mock-button' type="button">Start Mock Interview</button>}
-        modal
-        nested
-      >
-        {close => (
-          <div className="modal">
-            <button className="close" onClick={close}>&times;</button>
-           {renderDafModel()}
-          </div>
-        )}
-      </Popup>
+          <h1 className='practice-text'>Practice and improve your interview skills with our user-friendly tool that simulates a real interview experience.</h1>
+         <button className='mock-button' type="button">Start Mock Interview</button>
+       
          </div>
          <div className='image-container'>
          <h1 className="watch-text">Watch here how our Mock Interview works</h1>
          <ReactPlayer url='https://youtu.be/DE6eWekS_7I' />
          </div>
          </div>
+         <br/><br/><br/><br/><br/>
          <div className='stepper-container'>
          <Stepper/>
          </div>

@@ -29,12 +29,12 @@
   .answer {
     color: #9aa5b1;
     font-family: 'Roboto';
-    font-size: 16px;
+    font-size: 20px;
   }
   
   @media (max-width: 576px) {
     .answer {
-      font-size: 12px;
+      font-size: 16px;
     }
   }
   
